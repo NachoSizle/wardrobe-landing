@@ -8,55 +8,55 @@ const pageUrl = new URL(base.endsWith('/') ? base : `${base}/`, siteUrl).toStrin
 const absoluteAsset = (path: string) => new URL(asset(path), siteUrl).toString()
 const title = 'Wardrobe Studio | Tu vestidor digital inteligente'
 const description =
-  'Wardrobe Studio convierte tu armario en un sistema inteligente: digitaliza prendas, crea outfits, recibe recomendaciones diarias y planifica viajes.'
+  'Wardrobe Studio te ayuda a vestir mejor con lo que ya tienes: organiza tu armario, crea looks, decide qué ponerte y compra con más intención.'
 
 const features = [
   {
     title: 'Armario digital',
-    body: 'Fotografía tus prendas, clasifícalas por familia, color, marca y estado, y encuentra cualquier pieza sin abrir cajones.',
-    eyebrow: 'Captura',
+    body: 'Guarda tus prendas con foto, color, marca y estado para saber siempre qué tienes, qué usas y qué se está quedando olvidado.',
+    eyebrow: 'Orden',
   },
   {
     title: 'Outfit del día',
-    body: 'Wardrobe cruza clima, ocasión, fatiga de uso y combinaciones guardadas para proponerte qué ponerte hoy.',
-    eyebrow: 'Recomendación',
+    body: 'Abre la app y recibe una propuesta clara para hoy, con una razón fácil de entender y una acción rápida para guardarla.',
+    eyebrow: 'Decisión',
   },
   {
     title: 'Looks editables',
-    body: 'Compón outfits sobre un maniquí editorial, guarda versiones y vuelve a editarlas cuando cambie tu armario.',
-    eyebrow: 'Builder',
+    body: 'Crea combinaciones, ajusta piezas, guarda tus favoritas y vuelve a ellas cuando quieras repetir o mejorar un look.',
+    eyebrow: 'Estilo',
   },
   {
     title: 'Wishlist inteligente',
-    body: 'Guarda prendas desde Safari o tiendas, conserva precio objetivo, URL e imagen, y pásalas al armario al comprarlas.',
+    body: 'Guarda lo que estás pensando comprar con precio, enlace e imagen para decidir con calma y evitar compras impulsivas.',
     eyebrow: 'Compra mejor',
   },
   {
     title: 'Viajes sin exceso',
-    body: 'El planificador genera una maleta mínima para cubrir cada día del viaje según previsión, temperatura y prendas disponibles.',
-    eyebrow: 'Packing',
+    body: 'Prepara una maleta más ligera con prendas que combinan entre sí y cubren tus planes sin llenar la bolsa “por si acaso”.',
+    eyebrow: 'Maleta',
   },
   {
-    title: 'Probador AR',
-    body: 'Previsualiza un look completo sobre cámara antes de salir y decide con más confianza.',
-    eyebrow: 'Try-on',
+    title: 'Pruébate el look',
+    body: 'Previsualiza combinaciones antes de salir para decidir con más confianza y evitar cambios de última hora.',
+    eyebrow: 'Confianza',
   },
 ]
 
 const insights = [
-  'coste por uso',
-  'piezas en hibernación',
-  'score cápsula',
-  'lavandería inteligente',
-  'historial de looks',
-  'Wrapped anual',
+  'precio amortizado',
+  'prendas olvidadas',
+  'armario cápsula',
+  'lavado y rotación',
+  'looks repetidos',
+  'resumen anual',
 ]
 
 const steps = [
-  ['01', 'Digitaliza', 'Añade prendas desde cámara, biblioteca, código de barras o enlace compartido.'],
-  ['02', 'Combina', 'Crea outfits con un builder visual y deja que el motor aprenda tus preferencias.'],
-  ['03', 'Decide', 'Recibe un look diario con razones claras: clima, ocasión, color y rotación.'],
-  ['04', 'Mejora', 'Mide qué usas, qué no, qué amortizas y qué puede salir de tu armario.'],
+  ['01', 'Añade', 'Guarda tus prendas con foto, color, marca, precio y notas útiles.'],
+  ['02', 'Combina', 'Crea looks que puedas repetir, editar y recuperar cuando tengas prisa.'],
+  ['03', 'Decide', 'Recibe una propuesta diaria pensada para tus planes, tu estilo y tu rotación.'],
+  ['04', 'Mejora', 'Descubre qué usas, qué amortizas y qué puede salir de tu armario.'],
 ]
 
 const jsonLd = {
@@ -143,7 +143,7 @@ const jsonLd = {
         </div>
 
         <div class="hero-copy">
-          <p class="kicker">iPhone · macOS · Widget</p>
+          <p class="kicker">Armario · Looks · Viajes</p>
           <h1 id="hero-title">Tu armario empieza a pensar contigo.</h1>
           <p class="hero-lede">
             Wardrobe Studio transforma tus prendas en un vestidor vivo: captura,
@@ -194,27 +194,27 @@ const jsonLd = {
 
       <section class="proof-strip" aria-label="Resumen del producto">
         <div>
-          <strong>SwiftUI nativo</strong>
-          <span>Diseñado para sentirse Apple, no web envuelta.</span>
+          <strong>Menos dudas</strong>
+          <span>Una propuesta concreta para esos días en los que no sabes qué ponerte.</span>
         </div>
         <div>
-          <strong>Weather-aware</strong>
-          <span>Looks diarios con clima, ocasión y rotación.</span>
+          <strong>Compra con cabeza</strong>
+          <span>Wishlist con contexto para decidir después, no comprar por impulso.</span>
         </div>
         <div>
-          <strong>Menos ruido</strong>
-          <span>Decisiones útiles, no configuración infinita.</span>
+          <strong>Maletas ligeras</strong>
+          <span>Combinaciones pensadas para viajar sin llevar medio armario.</span>
         </div>
       </section>
 
       <section class="section intro" id="producto">
         <div class="section-heading">
           <p class="kicker">Producto</p>
-          <h2>Un estudio personal para vestir con intención.</h2>
+          <h2>Una forma más tranquila de entender tu estilo.</h2>
         </div>
         <p class="section-copy">
-          La app no intenta venderte más ropa. Te ayuda a entender la que ya tienes,
-          recordar lo que quieres comprar de verdad y convertir cada look aceptado en historial útil.
+          Wardrobe no intenta venderte más ropa. Te ayuda a usar mejor la que ya tienes,
+          recordar lo que vale la pena comprar y convertir cada look en una decisión más fácil.
         </p>
       </section>
 
@@ -238,13 +238,13 @@ const jsonLd = {
             </div>
             <div class="dashboard-content">
               <div>
-                <p class="kicker">Perfil de estilo</p>
-                <h2>De prendas sueltas a señales accionables.</h2>
+                <p class="kicker">Tu armario, leído de verdad</p>
+                <h2>Lo que usas cuenta una historia. Wardrobe te la enseña.</h2>
               </div>
               <div class="metric-row">
                 <div><strong>128</strong><span>prendas</span></div>
                 <div><strong>31</strong><span>outfits</span></div>
-                <div><strong>74%</strong><span>cápsula</span></div>
+                <div><strong>74%</strong><span>en rotación</span></div>
               </div>
               <div class="bars" aria-hidden="true">
                 <i style="height: 42%"></i>
@@ -258,11 +258,11 @@ const jsonLd = {
           </div>
         </div>
         <div class="system-copy">
-          <p class="kicker">Sistema Wardrobe</p>
-          <h2>El valor aparece después del tercer uso, no en el primer formulario.</h2>
+          <p class="kicker">Progreso visible</p>
+          <h2>Cada look guardado hace que tu armario sea más fácil de usar.</h2>
           <p>
-            Wardrobe registra wear logs por prenda, guarda snapshots de looks aceptados,
-            genera razones comprensibles y convierte patrones invisibles en decisiones sencillas.
+            La app te ayuda a ver qué prendas funcionan, cuáles se repiten demasiado,
+            qué compras se amortizan y qué piezas llevan meses esperando una segunda oportunidad.
           </p>
           <div class="insight-list">
             {insights.map((insight) => <span>{insight}</span>)}
@@ -290,37 +290,37 @@ const jsonLd = {
 
       <section class="travel-band">
         <div>
-          <p class="kicker">Viajes · Widget · AR</p>
+          <p class="kicker">Viajes · Wishlist · Probador</p>
           <h2>Cuando sales de casa, Wardrobe sigue contigo.</h2>
         </div>
         <p>
-          Planifica maletas, revisa el look del día desde el widget, prueba combinaciones
-          con cámara y comparte tarjetas de lookbook con estética editorial.
+          Planifica maletas, recupera looks que ya sabes que funcionan, prueba combinaciones
+          antes de salir y comparte tarjetas de lookbook con estética editorial.
         </p>
       </section>
 
-      <section class="native-section" id="privacidad">
-        <div class="native-copy">
-          <p class="kicker">Privacidad · Nativo · Sin ruido</p>
-          <h2>Un armario inteligente no necesita convertirte en un feed.</h2>
+      <section class="calm-section" id="privacidad">
+        <div class="calm-copy">
+          <p class="kicker">Privado · Calmado · Personal</p>
+          <h2>Tu armario no necesita convertirse en otra red social.</h2>
           <p>
             Wardrobe está pensado como una herramienta personal: tus prendas, tus looks,
             tus métricas y tus decisiones. Sin catálogo infinito, sin presión de compra
             y sin convertir cada mañana en otra pantalla que revisar.
           </p>
         </div>
-        <div class="native-panel" aria-label="Principios del producto">
+        <div class="calm-panel" aria-label="Principios del producto">
           <article>
-            <span>Local-first</span>
-            <strong>SwiftData para que tu armario responda al instante.</strong>
+            <span>Tuyo</span>
+            <strong>Tu armario se organiza alrededor de tus prendas reales, no de tendencias externas.</strong>
           </article>
           <article>
             <span>Contextual</span>
-            <strong>Clima, ocasión y rotación explicados con razones claras.</strong>
+            <strong>Cada recomendación explica por qué encaja con tu día y tu forma de vestir.</strong>
           </article>
           <article>
             <span>Accionable</span>
-            <strong>Hibernación, coste por uso y cápsula para mejorar sin comprar más.</strong>
+            <strong>Detecta prendas olvidadas, compras amortizadas y piezas que puedes rotar fuera.</strong>
           </article>
         </div>
       </section>
@@ -342,7 +342,7 @@ const jsonLd = {
 
     <footer>
       <span>Wardrobe Studio</span>
-      <span>iOS · macOS · Coming soon</span>
+      <span>Coming soon</span>
     </footer>
   </body>
 </html>

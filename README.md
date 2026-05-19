@@ -2,7 +2,7 @@
 
 **Tu armario empieza a pensar contigo.**
 
-Wardrobe Studio transforma tus prendas en un vestidor vivo: captura, combina,
+Wardrobe Studio transforma tus prendas en un vestidor vivo: guarda, combina,
 recomienda y mide para que cada mañana tengas menos duda y más estilo.
 
 Wardrobe no intenta venderte más ropa. Te ayuda a entender la que ya tienes,
@@ -13,77 +13,67 @@ historial útil.
 
 ### Armario digital
 
-Fotografía tus prendas, clasifícalas por familia, color, marca y estado, y
-encuentra cualquier pieza sin abrir cajones.
+Guarda tus prendas con foto, color, marca y estado para saber siempre qué
+tienes, qué usas y qué se está quedando olvidado.
 
 ### Outfit del día
 
-Wardrobe cruza clima, ocasión, fatiga de uso y combinaciones guardadas para
-proponerte qué ponerte hoy.
+Abre la app y recibe una propuesta clara para hoy, con una razón fácil de
+entender y una acción rápida para guardarla.
 
 ### Looks editables
 
-Compón outfits sobre un maniquí editorial, guarda versiones y vuelve a editarlas
-cuando cambie tu armario.
+Crea combinaciones, ajusta piezas, guarda tus favoritas y vuelve a ellas cuando
+quieras repetir o mejorar un look.
 
 ### Wishlist inteligente
 
-Guarda prendas desde Safari o tiendas, conserva precio objetivo, URL e imagen, y
-pásalas al armario al comprarlas.
+Guarda lo que estás pensando comprar con precio, enlace e imagen para decidir
+con calma y evitar compras impulsivas.
 
 ### Viajes sin exceso
 
-El planificador genera una maleta mínima para cubrir cada día del viaje según
-previsión, temperatura y prendas disponibles.
+Prepara una maleta más ligera con prendas que combinan entre sí y cubren tus
+planes sin llenar la bolsa “por si acaso”.
 
-### Probador AR
+### Pruébate el look
 
-Previsualiza un look completo sobre cámara antes de salir y decide con más
-confianza.
+Previsualiza combinaciones antes de salir para decidir con más confianza y evitar
+cambios de última hora.
 
-## Sistema Wardrobe
+## Progreso visible
 
-El valor aparece después del tercer uso, no en el primer formulario.
+Cada look guardado hace que tu armario sea más fácil de usar.
 
-Wardrobe registra wear logs por prenda, guarda snapshots de looks aceptados,
-genera razones comprensibles y convierte patrones invisibles en decisiones
-sencillas:
+Wardrobe te ayuda a ver qué prendas funcionan, cuáles se repiten demasiado, qué
+compras se amortizan y qué piezas llevan meses esperando una segunda oportunidad:
 
-- Coste por uso
-- Piezas en hibernación
-- Score cápsula
-- Lavandería inteligente
-- Historial de looks
-- Wrapped anual
+- Precio amortizado
+- Prendas olvidadas
+- Armario cápsula
+- Lavado y rotación
+- Looks repetidos
+- Resumen anual
 
 ## Flujo
 
-1. **Digitaliza**: añade prendas desde cámara, biblioteca, código de barras o enlace compartido.
-2. **Combina**: crea outfits con un builder visual y deja que el motor aprenda tus preferencias.
-3. **Decide**: recibe un look diario con razones claras: clima, ocasión, color y rotación.
+1. **Añade**: guarda tus prendas con foto, color, marca, precio y notas útiles.
+2. **Combina**: crea looks que puedas repetir, editar y recuperar cuando tengas prisa.
+3. **Decide**: recibe una propuesta diaria pensada para tus planes, tu estilo y tu rotación.
 4. **Mejora**: mide qué usas, qué no, qué amortizas y qué puede salir de tu armario.
 
-## Privacidad, nativo, sin ruido
+## Privado, calmado, personal
 
-Un armario inteligente no necesita convertirte en un feed.
+Tu armario no necesita convertirse en otra red social.
 
 Wardrobe está pensado como una herramienta personal: tus prendas, tus looks, tus
 métricas y tus decisiones. Sin catálogo infinito, sin presión de compra y sin
 convertir cada mañana en otra pantalla que revisar.
 
-- **Local-first**: SwiftData para que tu armario responda al instante.
-- **Contextual**: clima, ocasión y rotación explicados con razones claras.
-- **Accionable**: hibernación, coste por uso y cápsula para mejorar sin comprar más.
+- **Tuyo**: tu armario se organiza alrededor de tus prendas reales, no de tendencias externas.
+- **Contextual**: cada recomendación explica por qué encaja con tu día y tu forma de vestir.
+- **Accionable**: detecta prendas olvidadas, compras amortizadas y piezas que puedes rotar fuera.
 
-## Landing
+## Coming soon
 
-Esta web está construida con Astro, sin JavaScript de cliente, y desplegada en
-GitHub Pages.
-
-```sh
-bun install
-bun run build
-```
-
-El CTA de lanzamiento queda como **Coming soon** hasta que la ficha pública de
-App Store esté disponible.
+Wardrobe Studio estará disponible próximamente.

@@ -456,7 +456,7 @@ h1 {
 .section-heading h2,
 .system-copy h2,
 .travel-band h2,
-.native-copy h2,
+.calm-copy h2,
 .final-cta h2 {
   margin-bottom: 0;
   font-size: 48px;
@@ -466,7 +466,7 @@ h1 {
 .section-copy,
 .system-copy p,
 .travel-band p,
-.native-copy p {
+.calm-copy p {
   color: var(--wardrobe-muted);
   font-size: 18px;
   line-height: 1.65;
@@ -666,7 +666,7 @@ h1 {
   color: rgb(255 255 255 / 0.78);
 }
 
-.native-section {
+.calm-section {
   display: grid;
   grid-template-columns: 0.92fr 1.08fr;
   gap: 54px;
@@ -676,23 +676,23 @@ h1 {
   border-block: 1px solid var(--wardrobe-border);
 }
 
-.native-copy p {
+.calm-copy p {
   color: var(--wardrobe-muted);
 }
 
-.native-panel {
+.calm-panel {
   display: grid;
   gap: 12px;
 }
 
-.native-panel article {
+.calm-panel article {
   padding: 22px;
   background: var(--wardrobe-bg);
   border: 1px solid var(--wardrobe-border);
   border-radius: 18px;
 }
 
-.native-panel span {
+.calm-panel span {
   display: block;
   margin-bottom: 8px;
   color: var(--wardrobe-accent);
@@ -701,7 +701,7 @@ h1 {
   text-transform: uppercase;
 }
 
-.native-panel strong {
+.calm-panel strong {
   display: block;
   font-family: ui-serif, Georgia, "New York", serif;
   font-size: 24px;
@@ -786,7 +786,7 @@ footer {
   .intro,
   .system-section,
   .travel-band,
-  .native-section {
+  .calm-section {
     grid-template-columns: 1fr;
   }
 }
@@ -914,7 +914,7 @@ footer {
   .section-heading h2,
   .system-copy h2,
   .travel-band h2,
-  .native-copy h2 {
+  .calm-copy h2 {
     font-size: 36px;
   }
 
@@ -924,7 +924,7 @@ footer {
   }
 
   .system-section,
-  .native-section {
+  .calm-section {
     padding: 64px 20px;
   }
 
