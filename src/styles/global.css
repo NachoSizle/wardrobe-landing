@@ -723,6 +723,20 @@ footer {
   border-top: 1px solid var(--wardrobe-border);
 }
 
+@media (max-width: 1280px) {
+  .product-stage {
+    right: 1vw;
+    width: 430px;
+  }
+
+  .phone-side,
+  .chip-one,
+  .chip-two,
+  .chip-three {
+    display: none;
+  }
+}
+
 @media (max-width: 1060px) {
   h1 {
     max-width: 620px;
