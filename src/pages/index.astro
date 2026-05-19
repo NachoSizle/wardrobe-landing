@@ -3,8 +3,6 @@ import '../styles/global.css'
 
 const base = import.meta.env.BASE_URL
 const asset = (path: string) => `${base.endsWith('/') ? base : `${base}/`}${path}`
-const appStoreUrl = import.meta.env.PUBLIC_APP_STORE_URL || '#download'
-const appStoreReady = appStoreUrl !== '#download'
 const siteUrl = 'https://nachosizle.github.io'
 const pageUrl = new URL(base.endsWith('/') ? base : `${base}/`, siteUrl).toString()
 const absoluteAsset = (path: string) => new URL(asset(path), siteUrl).toString()
@@ -78,8 +76,8 @@ const jsonLd = {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'EUR',
-    availability: appStoreReady ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder',
-    url: appStoreReady ? appStoreUrl : pageUrl,
+    availability: 'https://schema.org/PreOrder',
+    url: pageUrl,
   },
   featureList: features.map((feature) => feature.title),
 }
@@ -131,9 +129,9 @@ const jsonLd = {
       <nav>
         <a href="#producto">Producto</a>
         <a href="#sistema">Sistema</a>
-        <a href="#sizle">Sizle</a>
+        <a href="#privacidad">Privacidad</a>
       </nav>
-      <a class="nav-cta" href={appStoreUrl}>App Store</a>
+      <span class="nav-cta">Coming soon</span>
     </header>
 
     <main id="top">
@@ -152,20 +150,13 @@ const jsonLd = {
             combina, recomienda y mide para que cada mañana tengas menos duda y más estilo.
           </p>
           <div class="hero-actions" id="download">
-            <a class="button primary" href={appStoreUrl}>
-              {appStoreReady ? 'Descargar en App Store' : 'Preparar descarga en App Store'}
-            </a>
+            <span class="button primary">Coming soon</span>
             <a class="button secondary" href="#producto">Ver lo que hace</a>
           </div>
-          {
-            !appStoreReady && (
-              <p class="cta-note">
-                CTA listo para enlazar la ficha pública cuando Apple la active.
-              </p>
-            )
-          }
+          <p class="cta-note">Lanzamiento en App Store próximamente.</p>
         </div>
 
+        <!-- TODO: replace this illustrative mockup with real screenshots from the Wardrobe iOS app. -->
         <div class="product-stage" aria-label="Vista previa de Wardrobe Studio">
           <div class="phone phone-main">
             <div class="phone-top">
@@ -308,24 +299,29 @@ const jsonLd = {
         </p>
       </section>
 
-      <section class="sizle-section" id="sizle">
-        <div class="sizle-copy">
-          <p class="kicker">A product by Sizle</p>
-          <h2>Product thinking. Clean engineering. Real impact.</h2>
+      <section class="native-section" id="privacidad">
+        <div class="native-copy">
+          <p class="kicker">Privacidad · Nativo · Sin ruido</p>
+          <h2>Un armario inteligente no necesita convertirte en un feed.</h2>
           <p>
-            La landing conserva el ADN de Sizle: midnight, graphite, azul eléctrico,
-            flow cyan y signal violet; aplicado sobre el lenguaje cálido y editorial de Wardrobe.
+            Wardrobe está pensado como una herramienta personal: tus prendas, tus looks,
+            tus métricas y tus decisiones. Sin catálogo infinito, sin presión de compra
+            y sin convertir cada mañana en otra pantalla que revisar.
           </p>
         </div>
-        <div class="sizle-panel">
-          <img
-            src={asset('assets/sizle-brand-board.jpg')}
-            alt="Sistema visual de marca Sizle"
-            width="1536"
-            height="1024"
-            loading="lazy"
-            decoding="async"
-          />
+        <div class="native-panel" aria-label="Principios del producto">
+          <article>
+            <span>Local-first</span>
+            <strong>SwiftData para que tu armario responda al instante.</strong>
+          </article>
+          <article>
+            <span>Contextual</span>
+            <strong>Clima, ocasión y rotación explicados con razones claras.</strong>
+          </article>
+          <article>
+            <span>Accionable</span>
+            <strong>Hibernación, coste por uso y cápsula para mejorar sin comprar más.</strong>
+          </article>
         </div>
       </section>
 
@@ -340,15 +336,13 @@ const jsonLd = {
         />
         <p class="kicker">Wardrobe Studio</p>
         <h2>Viste mejor con lo que ya tienes.</h2>
-        <a class="button primary" href={appStoreUrl}>
-          {appStoreReady ? 'Descargar en App Store' : 'Conectar App Store'}
-        </a>
+        <span class="button primary">Coming soon</span>
       </section>
     </main>
 
     <footer>
       <span>Wardrobe Studio</span>
-      <span>A product by Sizle</span>
+      <span>iOS · macOS · Coming soon</span>
     </footer>
   </body>
 </html>

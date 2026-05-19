@@ -456,7 +456,7 @@ h1 {
 .section-heading h2,
 .system-copy h2,
 .travel-band h2,
-.sizle-copy h2,
+.native-copy h2,
 .final-cta h2 {
   margin-bottom: 0;
   font-size: 48px;
@@ -466,7 +466,7 @@ h1 {
 .section-copy,
 .system-copy p,
 .travel-band p,
-.sizle-copy p {
+.native-copy p {
   color: var(--wardrobe-muted);
   font-size: 18px;
   line-height: 1.65;
@@ -666,32 +666,46 @@ h1 {
   color: rgb(255 255 255 / 0.78);
 }
 
-.sizle-section {
+.native-section {
   display: grid;
-  grid-template-columns: 0.86fr 1.14fr;
+  grid-template-columns: 0.92fr 1.08fr;
   gap: 54px;
   align-items: center;
   padding: 96px max(28px, calc((100vw - 1180px) / 2));
-  color: white;
-  background:
-    radial-gradient(circle at 20% 8%, rgb(37 99 235 / 0.22), transparent 32%),
-    radial-gradient(circle at 84% 80%, rgb(6 182 212 / 0.16), transparent 30%),
-    var(--midnight);
+  background: var(--wardrobe-surface);
+  border-block: 1px solid var(--wardrobe-border);
 }
 
-.sizle-section .kicker {
-  color: var(--flow-cyan);
+.native-copy p {
+  color: var(--wardrobe-muted);
 }
 
-.sizle-copy p {
-  color: rgb(255 255 255 / 0.7);
+.native-panel {
+  display: grid;
+  gap: 12px;
 }
 
-.sizle-panel {
-  overflow: hidden;
-  border: 1px solid rgb(255 255 255 / 0.12);
-  border-radius: 24px;
-  box-shadow: var(--shadow-dark);
+.native-panel article {
+  padding: 22px;
+  background: var(--wardrobe-bg);
+  border: 1px solid var(--wardrobe-border);
+  border-radius: 18px;
+}
+
+.native-panel span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--wardrobe-accent);
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.native-panel strong {
+  display: block;
+  font-family: ui-serif, Georgia, "New York", serif;
+  font-size: 24px;
+  line-height: 1.18;
 }
 
 .final-cta {
@@ -772,7 +786,7 @@ footer {
   .intro,
   .system-section,
   .travel-band,
-  .sizle-section {
+  .native-section {
     grid-template-columns: 1fr;
   }
 }
@@ -900,7 +914,7 @@ footer {
   .section-heading h2,
   .system-copy h2,
   .travel-band h2,
-  .sizle-copy h2 {
+  .native-copy h2 {
     font-size: 36px;
   }
 
@@ -910,7 +924,7 @@ footer {
   }
 
   .system-section,
-  .sizle-section {
+  .native-section {
     padding: 64px 20px;
   }
 

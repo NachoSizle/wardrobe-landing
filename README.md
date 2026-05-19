@@ -63,12 +63,17 @@ sencillas:
 3. **Decide**: recibe un look diario con razones claras: clima, ocasión, color y rotación.
 4. **Mejora**: mide qué usas, qué no, qué amortizas y qué puede salir de tu armario.
 
-## A product by Sizle
+## Privacidad, nativo, sin ruido
 
-**Product thinking. Clean engineering. Real impact.**
+Un armario inteligente no necesita convertirte en un feed.
 
-La landing conserva el ADN de Sizle: midnight, graphite, azul eléctrico, flow
-cyan y signal violet; aplicado sobre el lenguaje cálido y editorial de Wardrobe.
+Wardrobe está pensado como una herramienta personal: tus prendas, tus looks, tus
+métricas y tus decisiones. Sin catálogo infinito, sin presión de compra y sin
+convertir cada mañana en otra pantalla que revisar.
+
+- **Local-first**: SwiftData para que tu armario responda al instante.
+- **Contextual**: clima, ocasión y rotación explicados con razones claras.
+- **Accionable**: hibernación, coste por uso y cápsula para mejorar sin comprar más.
 
 ## Landing
 
@@ -80,5 +85,5 @@ bun install
 bun run build
 ```
 
-La URL de App Store se configura con la variable `PUBLIC_APP_STORE_URL` en GitHub
-Actions cuando la ficha pública esté disponible.
+El CTA de lanzamiento queda como **Coming soon** hasta que la ficha pública de
+App Store esté disponible.
