@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+  <!-- Pants silhouette: waistband on top, two legs at the bottom with
+       a triangular notch between them. Drawn with two symmetric
+       trapezoids meeting at the waist. -->
+  <path d="M5 2 L19 2 L19 4 L18.6 22 L13.6 22 L12.4 11 L11.6 11 L10.4 22 L5.4 22 L5 4 Z"/>
+</svg>

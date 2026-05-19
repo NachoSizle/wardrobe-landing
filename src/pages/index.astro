@@ -1,0 +1,294 @@
+---
+import '../styles/global.css'
+
+const base = import.meta.env.BASE_URL
+const asset = (path: string) => `${base.endsWith('/') ? base : `${base}/`}${path}`
+const appStoreUrl = import.meta.env.PUBLIC_APP_STORE_URL || '#download'
+const appStoreReady = appStoreUrl !== '#download'
+
+const features = [
+  {
+    title: 'Armario digital',
+    body: 'Fotografía tus prendas, clasifícalas por familia, color, marca y estado, y encuentra cualquier pieza sin abrir cajones.',
+    eyebrow: 'Captura',
+  },
+  {
+    title: 'Outfit del día',
+    body: 'Wardrobe cruza clima, ocasión, fatiga de uso y combinaciones guardadas para proponerte qué ponerte hoy.',
+    eyebrow: 'Recomendación',
+  },
+  {
+    title: 'Looks editables',
+    body: 'Compón outfits sobre un maniquí editorial, guarda versiones y vuelve a editarlas cuando cambie tu armario.',
+    eyebrow: 'Builder',
+  },
+  {
+    title: 'Wishlist inteligente',
+    body: 'Guarda prendas desde Safari o tiendas, conserva precio objetivo, URL e imagen, y pásalas al armario al comprarlas.',
+    eyebrow: 'Compra mejor',
+  },
+  {
+    title: 'Viajes sin exceso',
+    body: 'El planificador genera una maleta mínima para cubrir cada día del viaje según previsión, temperatura y prendas disponibles.',
+    eyebrow: 'Packing',
+  },
+  {
+    title: 'Probador AR',
+    body: 'Previsualiza un look completo sobre cámara antes de salir y decide con más confianza.',
+    eyebrow: 'Try-on',
+  },
+]
+
+const insights = [
+  'coste por uso',
+  'piezas en hibernación',
+  'score cápsula',
+  'lavandería inteligente',
+  'historial de looks',
+  'Wrapped anual',
+]
+
+const steps = [
+  ['01', 'Digitaliza', 'Añade prendas desde cámara, biblioteca, código de barras o enlace compartido.'],
+  ['02', 'Combina', 'Crea outfits con un builder visual y deja que el motor aprenda tus preferencias.'],
+  ['03', 'Decide', 'Recibe un look diario con razones claras: clima, ocasión, color y rotación.'],
+  ['04', 'Mejora', 'Mide qué usas, qué no, qué amortizas y qué puede salir de tu armario.'],
+]
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Wardrobe Studio convierte tu armario en un sistema inteligente: digitaliza prendas, crea outfits, recibe recomendaciones diarias y planifica viajes."
+    />
+    <meta name="theme-color" content="#F7F4F0" />
+    <meta property="og:title" content="Wardrobe Studio" />
+    <meta
+      property="og:description"
+      content="Tu vestidor digital inteligente. Una app de Sizle para vestir mejor con lo que ya tienes."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={asset('assets/wardrobe-icon.png')} />
+    <link rel="icon" type="image/png" href={asset('assets/wardrobe-icon.png')} />
+    <title>Wardrobe Studio | Tu vestidor digital inteligente</title>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Navegación principal">
+      <a class="brand-lockup" href="#top" aria-label="Wardrobe Studio">
+        <img src={asset('assets/wardrobe-icon.png')} alt="" />
+        <span>Wardrobe Studio</span>
+      </a>
+      <nav>
+        <a href="#producto">Producto</a>
+        <a href="#sistema">Sistema</a>
+        <a href="#sizle">Sizle</a>
+      </nav>
+      <a class="nav-cta" href={appStoreUrl}>App Store</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-chip chip-one">Clima 18 ºC</div>
+          <div class="orbit-chip chip-two">Coste/uso 1,84 €</div>
+          <div class="orbit-chip chip-three">Look guardado</div>
+        </div>
+
+        <div class="hero-copy">
+          <p class="kicker">iPhone · macOS · Widget</p>
+          <h1 id="hero-title">Tu armario empieza a pensar contigo.</h1>
+          <p class="hero-lede">
+            Wardrobe Studio transforma tus prendas en un vestidor vivo: captura,
+            combina, recomienda y mide para que cada mañana tengas menos duda y más estilo.
+          </p>
+          <div class="hero-actions" id="download">
+            <a class="button primary" href={appStoreUrl}>
+              {appStoreReady ? 'Descargar en App Store' : 'Preparar descarga en App Store'}
+            </a>
+            <a class="button secondary" href="#producto">Ver lo que hace</a>
+          </div>
+          {
+            !appStoreReady && (
+              <p class="cta-note">
+                CTA listo para enlazar la ficha pública cuando Apple la active.
+              </p>
+            )
+          }
+        </div>
+
+        <div class="product-stage" aria-label="Vista previa de Wardrobe Studio">
+          <div class="phone phone-main">
+            <div class="phone-top">
+              <span>MAR · 19 MAY</span>
+              <span>18 ºC</span>
+            </div>
+            <h2>Tu outfit del día</h2>
+            <div class="look-stack">
+              <div class="garment top-piece">
+                <span>Blazer lino</span>
+              </div>
+              <div class="garment bottom-piece">
+                <span>Pantalón recto</span>
+              </div>
+              <div class="garment shoe-piece">
+                <span>Mocasines</span>
+              </div>
+            </div>
+            <div class="reason">
+              Ligero para la tarde, formal sin exceso y con rotación equilibrada.
+            </div>
+            <div class="phone-cta">Lo llevo hoy</div>
+          </div>
+          <div class="phone phone-side" aria-hidden="true">
+            <div class="mini-grid">
+              <div><img src={asset('assets/dress.svg')} alt="" /></div>
+              <div><img src={asset('assets/pants.svg')} alt="" /></div>
+              <div><img src={asset('assets/skirt.svg')} alt="" /></div>
+              <div class="text-tile">+42</div>
+            </div>
+            <p>Armario</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Resumen del producto">
+        <div>
+          <strong>SwiftUI nativo</strong>
+          <span>Diseñado para sentirse Apple, no web envuelta.</span>
+        </div>
+        <div>
+          <strong>Weather-aware</strong>
+          <span>Looks diarios con clima, ocasión y rotación.</span>
+        </div>
+        <div>
+          <strong>Menos ruido</strong>
+          <span>Decisiones útiles, no configuración infinita.</span>
+        </div>
+      </section>
+
+      <section class="section intro" id="producto">
+        <div class="section-heading">
+          <p class="kicker">Producto</p>
+          <h2>Un estudio personal para vestir con intención.</h2>
+        </div>
+        <p class="section-copy">
+          La app no intenta venderte más ropa. Te ayuda a entender la que ya tienes,
+          recordar lo que quieres comprar de verdad y convertir cada look aceptado en historial útil.
+        </p>
+      </section>
+
+      <section class="feature-grid" aria-label="Funcionalidades de Wardrobe Studio">
+        {
+          features.map((feature) => (
+            <article class="feature-card">
+              <span>{feature.eyebrow}</span>
+              <h3>{feature.title}</h3>
+              <p>{feature.body}</p>
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="system-section" id="sistema">
+        <div class="system-visual">
+          <div class="dashboard-window">
+            <div class="window-bar">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="dashboard-content">
+              <div>
+                <p class="kicker">Perfil de estilo</p>
+                <h2>De prendas sueltas a señales accionables.</h2>
+              </div>
+              <div class="metric-row">
+                <div><strong>128</strong><span>prendas</span></div>
+                <div><strong>31</strong><span>outfits</span></div>
+                <div><strong>74%</strong><span>cápsula</span></div>
+              </div>
+              <div class="bars" aria-hidden="true">
+                <i style="height: 42%"></i>
+                <i style="height: 76%"></i>
+                <i style="height: 58%"></i>
+                <i style="height: 86%"></i>
+                <i style="height: 64%"></i>
+                <i style="height: 92%"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="system-copy">
+          <p class="kicker">Sistema Wardrobe</p>
+          <h2>El valor aparece después del tercer uso, no en el primer formulario.</h2>
+          <p>
+            Wardrobe registra wear logs por prenda, guarda snapshots de looks aceptados,
+            genera razones comprensibles y convierte patrones invisibles en decisiones sencillas.
+          </p>
+          <div class="insight-list">
+            {insights.map((insight) => <span>{insight}</span>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="steps-section" aria-label="Cómo funciona">
+        <div class="section-heading">
+          <p class="kicker">Flujo</p>
+          <h2>Cuatro gestos. Un armario que mejora solo.</h2>
+        </div>
+        <div class="steps">
+          {
+            steps.map(([number, title, body]) => (
+              <article>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="travel-band">
+        <div>
+          <p class="kicker">Viajes · Widget · AR</p>
+          <h2>Cuando sales de casa, Wardrobe sigue contigo.</h2>
+        </div>
+        <p>
+          Planifica maletas, revisa el look del día desde el widget, prueba combinaciones
+          con cámara y comparte tarjetas de lookbook con estética editorial.
+        </p>
+      </section>
+
+      <section class="sizle-section" id="sizle">
+        <div class="sizle-copy">
+          <p class="kicker">A product by Sizle</p>
+          <h2>Product thinking. Clean engineering. Real impact.</h2>
+          <p>
+            La landing conserva el ADN de Sizle: midnight, graphite, azul eléctrico,
+            flow cyan y signal violet; aplicado sobre el lenguaje cálido y editorial de Wardrobe.
+          </p>
+        </div>
+        <div class="sizle-panel">
+          <img src={asset('assets/sizle-brand-board.png')} alt="Sistema visual de marca Sizle" />
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <img src={asset('assets/wardrobe-icon.png')} alt="" />
+        <p class="kicker">Wardrobe Studio</p>
+        <h2>Viste mejor con lo que ya tienes.</h2>
+        <a class="button primary" href={appStoreUrl}>
+          {appStoreReady ? 'Descargar en App Store' : 'Conectar App Store'}
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <span>Wardrobe Studio</span>
+      <span>A product by Sizle</span>
+    </footer>
+  </body>
+</html>
