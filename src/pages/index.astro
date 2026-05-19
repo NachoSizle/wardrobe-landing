@@ -5,6 +5,12 @@ const base = import.meta.env.BASE_URL
 const asset = (path: string) => `${base.endsWith('/') ? base : `${base}/`}${path}`
 const appStoreUrl = import.meta.env.PUBLIC_APP_STORE_URL || '#download'
 const appStoreReady = appStoreUrl !== '#download'
+const siteUrl = 'https://nachosizle.github.io'
+const pageUrl = new URL(base.endsWith('/') ? base : `${base}/`, siteUrl).toString()
+const absoluteAsset = (path: string) => new URL(asset(path), siteUrl).toString()
+const title = 'Wardrobe Studio | Tu vestidor digital inteligente'
+const description =
+  'Wardrobe Studio convierte tu armario en un sistema inteligente: digitaliza prendas, crea outfits, recibe recomendaciones diarias y planifica viajes.'
 
 const features = [
   {
@@ -54,6 +60,29 @@ const steps = [
   ['03', 'Decide', 'Recibe un look diario con razones claras: clima, ocasión, color y rotación.'],
   ['04', 'Mejora', 'Mide qué usas, qué no, qué amortizas y qué puede salir de tu armario.'],
 ]
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Wardrobe Studio',
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'iOS, macOS',
+  description,
+  url: pageUrl,
+  image: absoluteAsset('assets/wardrobe-icon.png'),
+  brand: {
+    '@type': 'Brand',
+    name: 'Sizle',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'EUR',
+    availability: appStoreReady ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder',
+    url: appStoreReady ? appStoreUrl : pageUrl,
+  },
+  featureList: features.map((feature) => feature.title),
+}
 ---
 
 <!doctype html>
@@ -61,25 +90,42 @@ const steps = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Wardrobe Studio convierte tu armario en un sistema inteligente: digitaliza prendas, crea outfits, recibe recomendaciones diarias y planifica viajes."
-    />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={pageUrl} />
     <meta name="theme-color" content="#F7F4F0" />
-    <meta property="og:title" content="Wardrobe Studio" />
-    <meta
-      property="og:description"
-      content="Tu vestidor digital inteligente. Una app de Sizle para vestir mejor con lo que ya tienes."
-    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={asset('assets/wardrobe-icon.png')} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:site_name" content="Wardrobe Studio" />
+    <meta property="og:image" content={absoluteAsset('assets/wardrobe-icon.png')} />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:locale" content="es_ES" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteAsset('assets/wardrobe-icon.png')} />
     <link rel="icon" type="image/png" href={asset('assets/wardrobe-icon.png')} />
-    <title>Wardrobe Studio | Tu vestidor digital inteligente</title>
+    <link rel="apple-touch-icon" href={asset('assets/wardrobe-icon.png')} />
+    <link rel="manifest" href={asset('site.webmanifest')} />
+    <meta name="application-name" content="Wardrobe Studio" />
+    <meta name="apple-mobile-web-app-title" content="Wardrobe Studio" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    <title>{title}</title>
   </head>
   <body>
     <header class="site-header" aria-label="Navegación principal">
       <a class="brand-lockup" href="#top" aria-label="Wardrobe Studio">
-        <img src={asset('assets/wardrobe-icon.png')} alt="" />
+        <img
+          src={asset('assets/wardrobe-icon.png')}
+          alt=""
+          width="34"
+          height="34"
+          decoding="async"
+          fetchpriority="high"
+        />
         <span>Wardrobe Studio</span>
       </a>
       <nav>
@@ -145,9 +191,9 @@ const steps = [
           </div>
           <div class="phone phone-side" aria-hidden="true">
             <div class="mini-grid">
-              <div><img src={asset('assets/dress.svg')} alt="" /></div>
-              <div><img src={asset('assets/pants.svg')} alt="" /></div>
-              <div><img src={asset('assets/skirt.svg')} alt="" /></div>
+              <div><img src={asset('assets/dress.svg')} alt="" width="44" height="44" /></div>
+              <div><img src={asset('assets/pants.svg')} alt="" width="44" height="44" /></div>
+              <div><img src={asset('assets/skirt.svg')} alt="" width="44" height="44" /></div>
               <div class="text-tile">+42</div>
             </div>
             <p>Armario</p>
@@ -272,12 +318,26 @@ const steps = [
           </p>
         </div>
         <div class="sizle-panel">
-          <img src={asset('assets/sizle-brand-board.png')} alt="Sistema visual de marca Sizle" />
+          <img
+            src={asset('assets/sizle-brand-board.jpg')}
+            alt="Sistema visual de marca Sizle"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 
       <section class="final-cta">
-        <img src={asset('assets/wardrobe-icon.png')} alt="" />
+        <img
+          src={asset('assets/wardrobe-icon.png')}
+          alt=""
+          width="96"
+          height="96"
+          loading="lazy"
+          decoding="async"
+        />
         <p class="kicker">Wardrobe Studio</p>
         <h2>Viste mejor con lo que ya tienes.</h2>
         <a class="button primary" href={appStoreUrl}>
