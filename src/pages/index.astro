@@ -9,7 +9,7 @@ import screenshotPerfil from '../assets/screenshot-perfil.png'
 import wardrobeIcon from '../assets/wardrobe-icon.png'
 
 const screenshotWidths = [220, 300, 462, 600, 924]
-const screenshotSizes = '(max-width: 720px) 220px, (max-width: 1060px) 45vw, 300px'
+const spreadSizes = '(max-width: 1060px) 80vw, 300px'
 
 const base = import.meta.env.BASE_URL
 const asset = (path: string) => `${base.endsWith('/') ? base : `${base}/`}${path}`
@@ -20,36 +20,58 @@ const title = 'Wardrobe Studio | Tu vestidor digital inteligente'
 const description =
   'Wardrobe Studio te ayuda a vestir mejor con lo que ya tienes: organiza tu armario, crea looks, decide qué ponerte y compra con más intención.'
 
-const features = [
+// Las 6 capacidades del Sumario, cada una desarrollada más abajo (mismo id).
+// Las que tienen `img` se renderizan como spread con captura; el resto, como entrada de texto.
+const sections = [
   {
-    title: 'Armario digital',
-    body: 'Guarda tus prendas con foto, color, marca y estado para saber siempre qué tienes, qué usas y qué se está quedando olvidado.',
-    eyebrow: 'Orden',
+    no: '01',
+    id: 'cap-armario',
+    name: 'Armario digital',
+    tag: 'Orden',
+    title: 'Tu armario, por fin ordenado.',
+    body: 'Guarda cada prenda con foto, color, marca y estado para saber siempre qué tienes, qué usas y qué se está quedando olvidado.',
   },
   {
-    title: 'Outfit del día',
-    body: 'Abre la app y recibe una propuesta clara para hoy, con una razón fácil de entender y una acción rápida para guardarla.',
-    eyebrow: 'Decisión',
+    no: '02',
+    id: 'cap-hoy',
+    name: 'Outfit del día',
+    tag: 'Decisión',
+    title: 'Una propuesta clara para hoy.',
+    body: 'Abre la app y recibe el look del día con una razón fácil de entender y una acción rápida para guardarlo o pedir otra opción.',
+    img: screenshotHoy,
+    alt: 'Pantalla Hoy: recomendación de outfit según el tiempo y tu estilo',
+    caption: 'Pantalla Hoy — tu recomendación diaria',
   },
   {
-    title: 'Looks editables',
-    body: 'Crea combinaciones, ajusta piezas, guarda tus favoritas y vuelve a ellas cuando quieras repetir o mejorar un look.',
-    eyebrow: 'Estilo',
+    no: '03',
+    id: 'cap-looks',
+    name: 'Looks editables',
+    tag: 'Estilo',
+    title: 'Combina hoy, repite cuando quieras.',
+    body: 'Crea combinaciones, ajústalas pieza a pieza y guarda tus favoritas. Cuando tengas prisa, recuperas un look que ya sabes que funciona.',
+    img: screenshotOutfits,
+    alt: 'Pantalla Outfits: crea y descubre combinaciones de ropa',
+    caption: 'Pantalla Outfits — combinaciones guardadas',
+    reverse: true,
   },
   {
-    title: 'Wishlist inteligente',
-    body: 'Guarda lo que estás pensando comprar con precio, enlace e imagen para decidir con calma y evitar compras impulsivas.',
-    eyebrow: 'Compra mejor',
+    no: '04',
+    id: 'cap-wishlist',
+    name: 'Wishlist inteligente',
+    tag: 'Compra mejor',
+    title: 'Compra con intención, no por impulso.',
+    body: 'Guarda lo que estás pensando comprar con precio, enlace e imagen para decidir con calma y evitar la compra impulsiva.',
   },
   {
-    title: 'Viajes sin exceso',
-    body: 'Prepara una maleta más ligera con prendas que combinan entre sí y cubren tus planes sin llenar la bolsa “por si acaso”.',
-    eyebrow: 'Maleta',
-  },
-  {
-    title: 'Pruébate el look',
-    body: 'Previsualiza combinaciones antes de salir para decidir con más confianza y evitar cambios de última hora.',
-    eyebrow: 'Confianza',
+    no: '05',
+    id: 'cap-viajes',
+    name: 'Viajes sin exceso',
+    tag: 'Maleta',
+    title: 'Una maleta que cabe en una idea.',
+    body: 'Prepara equipajes más ligeros con prendas que combinan entre sí y cubren tus planes, sin llenar la bolsa “por si acaso”.',
+    img: screenshotViajes,
+    alt: 'Pantalla Viajes: planifica tu maleta con previsión del tiempo',
+    caption: 'Pantalla Viajes — maleta con previsión del tiempo',
   },
 ]
 
@@ -62,11 +84,11 @@ const insights = [
   'resumen anual',
 ]
 
-const steps = [
-  ['01', 'Añade', 'Guarda tus prendas con foto, color, marca, precio y notas útiles.'],
-  ['02', 'Combina', 'Crea looks que puedas repetir, editar y recuperar cuando tengas prisa.'],
-  ['03', 'Decide', 'Recibe una propuesta diaria pensada para tus planes, tu estilo y tu rotación.'],
-  ['04', 'Mejora', 'Descubre qué usas, qué amortizas y qué puede salir de tu armario.'],
+const legalBase = 'https://nachosizle.github.io/app-legal/apps/wardrobe-studio'
+const legalLinks = [
+  ['Política de privacidad', `${legalBase}/privacy-policy`],
+  ['Términos de uso', `${legalBase}/terms-of-use`],
+  ['Soporte', `${legalBase}/support`],
 ]
 
 const jsonLd = {
@@ -78,10 +100,7 @@ const jsonLd = {
   description,
   url: pageUrl,
   image: absoluteAsset('assets/wardrobe-icon.png'),
-  brand: {
-    '@type': 'Brand',
-    name: 'Sizle',
-  },
+  brand: { '@type': 'Brand', name: 'Sizle' },
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -89,7 +108,7 @@ const jsonLd = {
     availability: 'https://schema.org/PreOrder',
     url: pageUrl,
   },
-  featureList: features.map((feature) => feature.title),
+  featureList: sections.map((section) => section.name),
 }
 ---
 
@@ -101,6 +120,13 @@ const jsonLd = {
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href={pageUrl} />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href={asset('fonts/Fraunces-latin.woff2')}
+    />
     <meta name="theme-color" content="#F7F4F0" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -124,249 +150,178 @@ const jsonLd = {
     <title>{title}</title>
   </head>
   <body>
-    <header class="site-header" aria-label="Navegación principal">
-      <a class="brand-lockup" href="#top" aria-label="Wardrobe Studio">
-        <Image
-          src={wardrobeIcon}
-          alt=""
-          width={34}
-          height={34}
-          densities={[1, 2, 3]}
-          format="webp"
-          decoding="async"
-          fetchpriority="high"
-        />
-        <span>Wardrobe Studio</span>
-      </a>
-      <nav>
-        <a href="#producto">Producto</a>
-        <a href="#sistema">Sistema</a>
-        <a href="#privacidad">Privacidad</a>
+    <header class="masthead" aria-label="Navegación">
+      <a class="masthead-brand" href="#top">Wardrobe Studio</a>
+      <nav class="masthead-nav" aria-label="Secciones">
+        <a href="#sumario">Sumario</a>
+        <a href="#cifras">En cifras</a>
+        <a href="#editorial">Editorial</a>
       </nav>
-      <span class="nav-cta">Coming soon</span>
+      <span class="masthead-issue">Coming soon</span>
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="kicker">Armario · Looks · Viajes</p>
-          <h1 id="hero-title">Tu armario empieza a pensar contigo.</h1>
-          <p class="hero-lede">
-            Wardrobe Studio transforma tus prendas en un vestidor vivo: captura,
-            combina, recomienda y mide para que cada mañana tengas menos duda y más estilo.
-          </p>
-          <div class="hero-actions" id="download">
+      <!-- 1 · Portada -->
+      <section class="cover" aria-labelledby="hero-title">
+        <div class="nameplate">
+          <span class="nameplate-word">Wardrobe Studio</span>
+          <span class="nameplate-issue">Edición Nº01 · Coming soon</span>
+        </div>
+        <div class="cover-copy">
+          <p class="eyebrow">Armario · Looks · Viajes</p>
+          <h1 id="hero-title">El armario que <em>piensa</em> contigo.</h1>
+          <ul class="coverlines">
+            <li>Outfit del día, ya pensado</li>
+            <li>Viajes sin exceso, looks que combinan</li>
+            <li>Compra con intención, no por impulso</li>
+          </ul>
+          <div class="cover-actions">
             <span class="button primary">Coming soon</span>
-            <a class="button secondary" href="#producto">Ver lo que hace</a>
+            <a class="button ghost" href="#sumario">Leer la edición</a>
           </div>
-          <p class="cta-note">Lanzamiento en App Store próximamente.</p>
+          <p class="cover-meta">Lanzamiento en App Store próximamente</p>
         </div>
       </section>
 
-      <section class="screenshots-section" aria-label="Capturas de pantalla de Wardrobe Studio">
-        <p class="kicker screenshots-kicker">La app, en acción</p>
-        <div class="screenshots-strip">
-          <figure class="screenshot-card">
-            <Image
-              src={screenshotHoy}
-              alt="Pantalla Hoy: recomendación de outfit según el tiempo y tu estilo"
-              widths={screenshotWidths}
-              sizes={screenshotSizes}
-              format="webp"
-              fetchpriority="high"
-              loading="eager"
-              decoding="async"
-            />
-          </figure>
-          <figure class="screenshot-card">
-            <Image
-              src={screenshotOutfits}
-              alt="Pantalla Outfits: crea y descubre combinaciones de ropa"
-              widths={screenshotWidths}
-              sizes={screenshotSizes}
-              format="webp"
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure class="screenshot-card">
-            <Image
-              src={screenshotViajes}
-              alt="Pantalla Viajes: planifica tu maleta con previsión del tiempo"
-              widths={screenshotWidths}
-              sizes={screenshotSizes}
-              format="webp"
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <figure class="screenshot-card">
-            <Image
-              src={screenshotPerfil}
-              alt="Pantalla Perfil: estadísticas de tu armario y paleta de colores"
-              widths={screenshotWidths}
-              sizes={screenshotSizes}
-              format="webp"
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
+      <span id="nav-sentinel" aria-hidden="true"></span>
+
+      <!-- 2 · Sumario -->
+      <section class="contents" id="sumario">
+        <div class="contents-head">
+          <p class="eyebrow">En este número</p>
+          <h2>Sumario</h2>
         </div>
+        <ol class="contents-list">
+          {
+            sections.map((section) => (
+              <li>
+                <a class="contents-row" href={`#${section.id}`}>
+                  <span class="contents-no">{section.no}</span>
+                  <span class="contents-title">{section.name}</span>
+                  <span class="contents-note">{section.tag}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
       </section>
 
-      <section class="proof-strip" aria-label="Resumen del producto">
-        <div>
-          <strong>Menos dudas</strong>
-          <span>Una propuesta concreta para esos días en los que no sabes qué ponerte.</span>
-        </div>
-        <div>
-          <strong>Compra con cabeza</strong>
-          <span>Wishlist con contexto para decidir después, no comprar por impulso.</span>
-        </div>
-        <div>
-          <strong>Maletas ligeras</strong>
-          <span>Combinaciones pensadas para viajar sin llevar medio armario.</span>
-        </div>
-      </section>
-
-      <section class="section intro" id="producto">
-        <div class="section-heading">
-          <p class="kicker">Producto</p>
-          <h2>Una forma más tranquila de entender tu estilo.</h2>
-        </div>
-        <p class="section-copy">
-          Wardrobe no intenta venderte más ropa. Te ayuda a usar mejor la que ya tienes,
-          recordar lo que vale la pena comprar y convertir cada look en una decisión más fácil.
-        </p>
-      </section>
-
-      <section class="feature-grid" aria-label="Funcionalidades de Wardrobe Studio">
+      <!-- 3 · Capacidades (feature well) -->
+      <section class="spreads" aria-label="Lo que hace Wardrobe Studio">
         {
-          features.map((feature) => (
-            <article class="feature-card">
-              <span>{feature.eyebrow}</span>
-              <h3>{feature.title}</h3>
-              <p>{feature.body}</p>
-            </article>
-          ))
+          sections.map((section) =>
+            section.img ? (
+              <article class:list={['spread', { reverse: section.reverse }]} id={section.id}>
+                <figure class="spread-figure">
+                  <Image
+                    src={section.img}
+                    alt={section.alt}
+                    widths={screenshotWidths}
+                    sizes={spreadSizes}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>{section.caption}</figcaption>
+                </figure>
+                <div class="spread-copy">
+                  <span class="spread-folio">{section.no}</span>
+                  <p class="eyebrow">{section.name}</p>
+                  <h2>{section.title}</h2>
+                  <p>{section.body}</p>
+                </div>
+              </article>
+            ) : (
+              <article class="entry" id={section.id}>
+                <div class="entry-head">
+                  <span class="spread-folio">{section.no}</span>
+                  <p class="eyebrow">{section.name}</p>
+                </div>
+                <div class="entry-body">
+                  <h2>{section.title}</h2>
+                  <p>{section.body}</p>
+                </div>
+              </article>
+            ),
+          )
         }
       </section>
 
-      <section class="system-section" id="sistema">
-        <div class="system-visual">
-          <div class="dashboard-window">
-            <div class="window-bar">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="dashboard-content">
-              <div>
-                <p class="kicker">Tu armario, leído de verdad</p>
-                <h2>Lo que usas cuenta una historia. Wardrobe te la enseña.</h2>
-              </div>
-              <div class="metric-row">
-                <div><strong>128</strong><span>prendas</span></div>
-                <div><strong>31</strong><span>outfits</span></div>
-                <div><strong>74%</strong><span>en rotación</span></div>
-              </div>
-              <div class="bars" aria-hidden="true">
-                <i style="height: 42%"></i>
-                <i style="height: 76%"></i>
-                <i style="height: 58%"></i>
-                <i style="height: 86%"></i>
-                <i style="height: 64%"></i>
-                <i style="height: 92%"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="system-copy">
-          <p class="kicker">Progreso visible</p>
-          <h2>Cada look guardado hace que tu armario sea más fácil de usar.</h2>
+      <!-- 4 · Pull quote -->
+      <section class="pullquote">
+        <p>Wardrobe no te vende más ropa: te ayuda a vestir mejor con la que ya tienes.</p>
+        <span class="pullquote-by">La redacción</span>
+      </section>
+
+      <!-- 5 · En cifras (Perfil) -->
+      <section class="figures" id="cifras">
+        <div class="figures-copy">
+          <p class="eyebrow">En cifras · Perfil</p>
+          <h2>Tu armario, leído de verdad.</h2>
           <p>
-            La app te ayuda a ver qué prendas funcionan, cuáles se repiten demasiado,
-            qué compras se amortizan y qué piezas llevan meses esperando una segunda oportunidad.
+            Descubre qué usas, qué se repite, qué compras se amortizan y qué piezas
+            llevan meses esperando una segunda oportunidad.
           </p>
           <div class="insight-list">
             {insights.map((insight) => <span>{insight}</span>)}
           </div>
         </div>
+        <figure class="figures-figure">
+          <Image
+            src={screenshotPerfil}
+            alt="Pantalla Perfil: estadísticas de tu armario y paleta de colores"
+            widths={screenshotWidths}
+            sizes={spreadSizes}
+            format="webp"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Pantalla Perfil — estadísticas y paleta</figcaption>
+        </figure>
       </section>
 
-      <section class="steps-section" aria-label="Cómo funciona">
-        <div class="section-heading">
-          <p class="kicker">Flujo</p>
-          <h2>Cuatro gestos. Un armario que mejora solo.</h2>
-        </div>
-        <div class="steps">
-          {
-            steps.map(([number, title, body]) => (
-              <article>
-                <span>{number}</span>
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
-      <section class="travel-band">
-        <div>
-          <p class="kicker">Viajes · Wishlist · Probador</p>
-          <h2>Cuando sales de casa, Wardrobe sigue contigo.</h2>
-        </div>
-        <p>
-          Planifica maletas, recupera looks que ya sabes que funcionan, prueba combinaciones
-          antes de salir y comparte tarjetas de lookbook con estética editorial.
-        </p>
-      </section>
-
-      <section class="calm-section" id="privacidad">
-        <div class="calm-copy">
-          <p class="kicker">Privado · Calmado · Personal</p>
-          <h2>Tu armario no necesita convertirse en otra red social.</h2>
-          <p>
-            Wardrobe está pensado como una herramienta personal: tus prendas, tus looks,
-            tus métricas y tus decisiones. Sin catálogo infinito, sin presión de compra
-            y sin convertir cada mañana en otra pantalla que revisar.
-          </p>
-        </div>
-        <div class="calm-panel" aria-label="Principios del producto">
-          <article>
-            <span>Tuyo</span>
-            <strong>Tu armario se organiza alrededor de tus prendas reales, no de tendencias externas.</strong>
-          </article>
-          <article>
-            <span>Contextual</span>
-            <strong>Cada recomendación explica por qué encaja con tu día y tu forma de vestir.</strong>
-          </article>
-          <article>
-            <span>Accionable</span>
-            <strong>Detecta prendas olvidadas, compras amortizadas y piezas que puedes rotar fuera.</strong>
-          </article>
-        </div>
-      </section>
-
-      <section class="final-cta">
-        <Image
-          src={wardrobeIcon}
-          alt=""
-          width={96}
-          height={96}
-          densities={[1, 2, 3]}
-          format="webp"
-          loading="lazy"
-          decoding="async"
-        />
-        <p class="kicker">Wardrobe Studio</p>
+      <!-- 6 · Cierre -->
+      <section class="closing" id="editorial">
+        <figure class="closing-mark">
+          <span class="halo" aria-hidden="true"></span>
+          <Image
+            src={wardrobeIcon}
+            alt=""
+            width={88}
+            height={88}
+            densities={[1, 2, 3]}
+            format="webp"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <p class="eyebrow">Wardrobe Studio</p>
         <h2>Viste mejor con lo que ya tienes.</h2>
         <span class="button primary">Coming soon</span>
       </section>
     </main>
 
-    <footer>
-      <span>Wardrobe Studio</span>
-      <span>Made with &lt;3 by Sizle Digital Product Studio</span>
+    <footer class="colophon">
+      <span class="colophon-brand">Wardrobe Studio — Edición Nº01</span>
+      <nav class="footer-legal" aria-label="Enlaces legales">
+        {legalLinks.map(([label, href]) => <a href={href}>{label}</a>)}
+      </nav>
+      <span class="colophon-by">Made with &lt;3 by Sizle Digital Product Studio</span>
     </footer>
+
+    <script>
+      const header = document.querySelector('.masthead')
+      const sentinel = document.getElementById('nav-sentinel')
+      if (header && sentinel) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            const scrolledPast = !entry.isIntersecting && entry.boundingClientRect.top < 0
+            header.classList.toggle('is-visible', scrolledPast)
+          },
+          { threshold: 0 },
+        )
+        observer.observe(sentinel)
+      }
+    </script>
   </body>
 </html>
