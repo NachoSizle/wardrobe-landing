@@ -21,6 +21,28 @@
   src: url('/wardrobe-landing/fonts/Fraunces-Italic-latin.woff2') format('woff2');
 }
 
+/* Respaldo con métricas ajustadas (Georgia) para anular el CLS del swap.
+   size-adjust/overrides calculados con las métricas reales de Fraunces. */
+@font-face {
+  font-family: 'Fraunces Fallback';
+  font-style: normal;
+  src: local('Georgia');
+  size-adjust: 116.26%;
+  ascent-override: 84.12%;
+  descent-override: 21.93%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Fraunces Fallback';
+  font-style: italic;
+  src: local('Georgia Italic'), local('Georgia');
+  size-adjust: 112.59%;
+  ascent-override: 86.86%;
+  descent-override: 22.65%;
+  line-gap-override: 0%;
+}
+
 :root {
   /* App color tokens (light mode, de Color+Wardrobe.swift) */
   --bg: #f7f4f0;
@@ -53,7 +75,7 @@
   --halo-shadow: 0 6px 28px rgb(203 89 48 / 0.18);
 
   /* Tipografía */
-  --font-display: 'Fraunces', Georgia, 'New York', 'Times New Roman', serif;
+  --font-display: 'Fraunces', 'Fraunces Fallback', Georgia, 'New York', 'Times New Roman', serif;
   --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
 
   --page: min(1180px, calc(100% - 56px));
