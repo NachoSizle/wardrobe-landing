@@ -1,5 +1,15 @@
 ---
+import { Image } from 'astro:assets'
 import '../styles/global.css'
+
+import screenshotHoy from '../assets/screenshot-hoy.png'
+import screenshotOutfits from '../assets/screenshot-outfits.png'
+import screenshotViajes from '../assets/screenshot-viajes.png'
+import screenshotPerfil from '../assets/screenshot-perfil.png'
+import wardrobeIcon from '../assets/wardrobe-icon.png'
+
+const screenshotWidths = [220, 300, 462, 600, 924]
+const screenshotSizes = '(max-width: 720px) 220px, (max-width: 1060px) 45vw, 300px'
 
 const base = import.meta.env.BASE_URL
 const asset = (path: string) => `${base.endsWith('/') ? base : `${base}/`}${path}`
@@ -116,11 +126,13 @@ const jsonLd = {
   <body>
     <header class="site-header" aria-label="Navegación principal">
       <a class="brand-lockup" href="#top" aria-label="Wardrobe Studio">
-        <img
-          src={asset('assets/wardrobe-icon.png')}
+        <Image
+          src={wardrobeIcon}
           alt=""
-          width="34"
-          height="34"
+          width={34}
+          height={34}
+          densities={[1, 2, 3]}
+          format="webp"
           decoding="async"
           fetchpriority="high"
         />
@@ -136,12 +148,6 @@ const jsonLd = {
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-orbit" aria-hidden="true">
-          <div class="orbit-chip chip-one">Clima 18 ºC</div>
-          <div class="orbit-chip chip-two">Coste/uso 1,84 €</div>
-          <div class="orbit-chip chip-three">Look guardado</div>
-        </div>
-
         <div class="hero-copy">
           <p class="kicker">Armario · Looks · Viajes</p>
           <h1 id="hero-title">Tu armario empieza a pensar contigo.</h1>
@@ -155,40 +161,56 @@ const jsonLd = {
           </div>
           <p class="cta-note">Lanzamiento en App Store próximamente.</p>
         </div>
+      </section>
 
-        <!-- TODO: replace this illustrative mockup with real screenshots from the Wardrobe iOS app. -->
-        <div class="product-stage" aria-label="Vista previa de Wardrobe Studio">
-          <div class="phone phone-main">
-            <div class="phone-top">
-              <span>MAR · 19 MAY</span>
-              <span>18 ºC</span>
-            </div>
-            <h2>Tu outfit del día</h2>
-            <div class="look-stack">
-              <div class="garment top-piece">
-                <span>Blazer lino</span>
-              </div>
-              <div class="garment bottom-piece">
-                <span>Pantalón recto</span>
-              </div>
-              <div class="garment shoe-piece">
-                <span>Mocasines</span>
-              </div>
-            </div>
-            <div class="reason">
-              Ligero para la tarde, formal sin exceso y con rotación equilibrada.
-            </div>
-            <div class="phone-cta">Lo llevo hoy</div>
-          </div>
-          <div class="phone phone-side" aria-hidden="true">
-            <div class="mini-grid">
-              <div><img src={asset('assets/dress.svg')} alt="" width="44" height="44" /></div>
-              <div><img src={asset('assets/pants.svg')} alt="" width="44" height="44" /></div>
-              <div><img src={asset('assets/skirt.svg')} alt="" width="44" height="44" /></div>
-              <div class="text-tile">+42</div>
-            </div>
-            <p>Armario</p>
-          </div>
+      <section class="screenshots-section" aria-label="Capturas de pantalla de Wardrobe Studio">
+        <p class="kicker screenshots-kicker">La app, en acción</p>
+        <div class="screenshots-strip">
+          <figure class="screenshot-card">
+            <Image
+              src={screenshotHoy}
+              alt="Pantalla Hoy: recomendación de outfit según el tiempo y tu estilo"
+              widths={screenshotWidths}
+              sizes={screenshotSizes}
+              format="webp"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+          <figure class="screenshot-card">
+            <Image
+              src={screenshotOutfits}
+              alt="Pantalla Outfits: crea y descubre combinaciones de ropa"
+              widths={screenshotWidths}
+              sizes={screenshotSizes}
+              format="webp"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="screenshot-card">
+            <Image
+              src={screenshotViajes}
+              alt="Pantalla Viajes: planifica tu maleta con previsión del tiempo"
+              widths={screenshotWidths}
+              sizes={screenshotSizes}
+              format="webp"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <figure class="screenshot-card">
+            <Image
+              src={screenshotPerfil}
+              alt="Pantalla Perfil: estadísticas de tu armario y paleta de colores"
+              widths={screenshotWidths}
+              sizes={screenshotSizes}
+              format="webp"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         </div>
       </section>
 
@@ -326,11 +348,13 @@ const jsonLd = {
       </section>
 
       <section class="final-cta">
-        <img
-          src={asset('assets/wardrobe-icon.png')}
+        <Image
+          src={wardrobeIcon}
           alt=""
-          width="96"
-          height="96"
+          width={96}
+          height={96}
+          densities={[1, 2, 3]}
+          format="webp"
           loading="lazy"
           decoding="async"
         />
